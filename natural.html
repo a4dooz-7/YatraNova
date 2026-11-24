@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YatraNova | Natural Destinations</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/logo.png" />
+
+    <style>
+      :root {
+        --primary-green: #1a4731;
+        --accent-green: #2ecc71;
+        --text-muted: #666;
+        --card-bg: #ffffff;
+        --body-bg: #f4f7f4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      main {
+        padding-top: 100px;
+        text-align: center;
+      }
+
+      body {
+        background-color: var(--body-bg);
+        color: #333;
+      }
+      .logo {
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+
+      /* --- Header --- */
+      .header-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        margin-bottom: 40px;
+        border-bottom: 4px solid var(--accent-green);
+      }
+      .header-section h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--primary-green);
+      }
+
+      /* --- List Container --- */
+      .list-container {
+        max-width: 1100px;
+        margin: 0 auto 100px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      /* --- Fixed Size Destination Row --- */
+      .dest-row {
+        display: flex;
+        background: var(--card-bg);
+        border-radius: 20px;
+        height: 380px; /* Forces uniform size */
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .dest-row:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-green);
+        box-shadow: 0 15px 35px rgba(26, 71, 49, 0.15);
+      }
+
+      /* Image Side */
+      .dest-img-wrapper {
+        flex: 0 0 40%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .dest-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Prevents distortion */
+        transition: transform 0.6s ease;
+      }
+      .dest-row:hover .dest-img-wrapper img {
+        transform: scale(1.1);
+      }
+
+      /* Text Side */
+      .dest-text {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .dest-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--primary-green);
+        margin-bottom: 10px;
+      }
+      .description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        /* Limits text height to maintain box integrity */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Detail Icons */
+      .meta-info {
+        display: grid;
+        gap: 10px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+      .meta-item i {
+        color: var(--accent-green);
+        width: 20px;
+        text-align: center;
+      }
+      .label {
+        font-weight: 600;
+        color: var(--primary-green);
+      }
+
+      /* Mobile Support */
+      @media (max-width: 800px) {
+        .dest-row {
+          flex-direction: column;
+          height: auto;
+        }
+        .dest-img-wrapper {
+          width: 100%;
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      style="
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="nav-left">
+        <img src="./img/logo.png" alt="Logo" style="height: 50px" />
+      </div>
+      <div class="nav-center">
+        <ul style="list-style: none; display: flex; gap: 20px; margin: 0">
+          <li>
+            <a
+              href="confirmed.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="./heritage.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Destinations</a
+            >
+          </li>
+          <li>
+            <a
+              href="./aboutus.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="./feedback.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Feedback</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="nav-right"
+        style="color: #1a4731; display: flex; gap: 15px; cursor: pointer"
+      >
+        <i class="fa-solid fa-calendar-days"></i>
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </nav>
+    <main>
+      <div class="header-section">
+        <h1>Natural Wonders</h1>
+        <p>Discover 10 breathtaking natural locations across Nepal.</p>
+      </div>
+
+      <div class="list-container">
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/nat.1.jpg" alt="Annapurna Sanctuary" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Annapurna Sanctuary</h2>
+              <p class="description">
+                A high-altitude glacial basin surrounded by a ring of some of
+                the world's highest mountains. It is a sacred site for Gurung
+                and Magar indigenous peoples.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> North of Pokhara</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> Oct-Nov & Mar-Apr</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> 360-degree
+                  mountain panorama</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/chitwan.jpg" alt="Chitwan" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Chitwan National Park</h2>
+              <p class="description">
+                Nepal's first national park, famous for the successful
+                conservation of the Greater One-horned Rhinoceros and the Royal
+                Bengal Tiger.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> South-central
+                  Nepal</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span><span class="label">Best Time:</span> Oct to March</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Canoe trips on the
+                  Rapti River</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="./pokharasub.html"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="dest-row">
+            <div class="dest-img-wrapper">
+              <img src="img/nat7.jpg" alt="Pokhara" />
+            </div>
+            <div class="dest-text">
+              <div>
+                <h2>Pokhara</h2>
+                <p class="description">
+                  Known as the tourism capital of Nepal, where mountains meet
+                  tranquil lakes. It offers a laid-back atmosphere rare for
+                  high-altitude proximity.
+                </p>
+              </div>
+              <div class="meta-info">
+                <div class="meta-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span
+                    ><span class="label">Location:</span> Western Nepal</span
+                  >
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span
+                    ><span class="label">Best Time:</span> Sept-Nov &
+                    Mar-May</span
+                  >
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-leaf"></i>
+                  <span
+                    ><span class="label">Unique Feature:</span> Reflection of
+                    Mt. Machhapuchhre in Phewa Lake</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/nat4.jpg" alt="Sagarmatha" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Sagarmatha National Park</h2>
+              <p class="description">
+                Home to Mount Everest, this UNESCO site is unique for its
+                dramatic mountain landscapes and legendary Sherpa culture.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Khumbu region, Eastern
+                  Nepal</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> Mar-May &
+                  Sept-Nov</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Highest point on
+                  Earth (8,848.89m)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/rara.jpg" alt="Rara Lake" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Rara Lake</h2>
+              <p class="description">
+                The largest and deepest freshwater lake in Nepal. It is a hidden
+                gem untouched by mass tourism, known as the "Queen of Lakes".
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span><span class="label">Location:</span> Mugu District</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> Apr-June &
+                  Sept-Oct</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Pristine blue
+                  water that changes colors</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/shey.jpg" alt="Shey Phoksundo" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Shey Phoksundo National Park</h2>
+              <p class="description">
+                The largest trans-Himalayan park in Nepal, featuring a turquoise
+                lake devoid of aquatic life and ancient Bon-Po culture.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Dolpa District</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> April to November</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> 167-meter-tall
+                  Suligad waterfall</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/langtang.jpg" alt="Langtang" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Langtang Valley</h2>
+              <p class="description">
+                Known as the "Valley of Glaciers," it offers a blend of
+                high-altitude pastures and rich Tamang culture near Kathmandu.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> North-central
+                  Nepal</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> Mar-May & Oct-Nov</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Kyanjin Gompa
+                  surrounded by peaks</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/mustang.jpg" alt="Upper Mustang" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Upper Mustang</h2>
+              <p class="description">
+                A remote, arid Kingdom of Lo sitting in the rain shadow. It
+                features desert-like sandstone cliffs and mysterious sky caves.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> North-central
+                  trans-Himalaya</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> May to October</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Walled capital
+                  city, Lo Manthang</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/gosai.jpg" alt="Gosaikunda" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Gosaikunda Lake</h2>
+              <p class="description">
+                A sacred alpine pilgrimage site at 4,380 meters, believed to be
+                created by Lord Shiva.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Langtang National
+                  Park</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> August (Janai Purnima
+                  festival)</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Collection of 108
+                  high-altitude lakes</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/ilamnp.jpg" alt="Ilam" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Ilam</h2>
+              <p class="description">
+                The "Tea Capital" of Nepal, famous for rolling green hills
+                completely covered in tea bushes and misty landscapes.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Eastern Nepal
+                  hills</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i
+                ><span
+                  ><span class="label">Best Time:</span> Sept-Dec &
+                  Feb-Apr</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-leaf"></i
+                ><span
+                  ><span class="label">Unique Feature:</span> Antu Danda sunrise
+                  views</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

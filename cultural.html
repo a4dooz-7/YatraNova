@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YatraNova | Cultural Destinations</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+      :root {
+        --primary-green: #1a4731;
+        --accent-green: #2ecc71;
+        --text-muted: #666;
+        --card-bg: #ffffff;
+        --body-bg: #f4f7f4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--body-bg);
+        color: #333;
+      }
+       main {
+        padding-top: 100px;
+        text-align: center;
+      }
+      .logo {
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+
+      /* --- Header --- */
+      .header-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        margin-bottom: 40px;
+        border-bottom: 4px solid var(--accent-green);
+      }
+      .header-section h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--primary-green);
+      }
+
+      /* --- List Container --- */
+      .list-container {
+        max-width: 1100px;
+        margin: 0 auto 100px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      /* --- Fixed Size Destination Row --- */
+      .dest-row {
+        display: flex;
+        background: var(--card-bg);
+        border-radius: 20px;
+        height: 380px; /* Forces uniform size */
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .dest-row:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-green);
+        box-shadow: 0 15px 35px rgba(26, 71, 49, 0.15);
+      }
+
+      /* Image Side */
+      .dest-img-wrapper {
+        flex: 0 0 40%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .dest-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Prevents distortion */
+        transition: transform 0.6s ease;
+      }
+      .dest-row:hover .dest-img-wrapper img {
+        transform: scale(1.1);
+      }
+
+      /* Text Side */
+      .dest-text {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .dest-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--primary-green);
+        margin-bottom: 10px;
+      }
+      .description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        /* Limits text height to maintain box integrity */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Detail Icons */
+      .meta-info {
+        display: grid;
+        gap: 10px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+      .meta-item i {
+        color: var(--accent-green);
+        width: 20px;
+        text-align: center;
+      }
+      .label {
+        font-weight: 600;
+        color: var(--primary-green);
+      }
+
+      /* For Responsiveness */
+      @media (max-width: 800px) {
+        .dest-row {
+          flex-direction: column;
+          height: auto;
+        }
+        .dest-img-wrapper {
+          width: 100%;
+          height: 250px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav
+      style="
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="nav-left">
+        <img src="./img/logo.png" alt="Logo" style="height: 50px" />
+      </div>
+      <div class="nav-center">
+        <ul style="list-style: none; display: flex; gap: 20px; margin: 0">
+          <li>
+            <a
+              href="confirmed.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="./heritage.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Destinations</a
+            >
+          </li>
+          <li>
+            <a
+              href="./aboutus.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="./feedback.html"
+              style="color: #1a4731; text-decoration: none; font-weight: 600"
+              >Feedback</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="nav-right"
+        style="color: #1a4731; display: flex; gap: 15px; cursor: pointer"
+      >
+        <i class="fa-solid fa-calendar-days"></i>
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </nav>
+
+    <main>
+      <div class="header-section">
+        <h1>Cultural Heritage</h1>
+        <p>Discover 10 vibrant cultural and spiritual hubs across Nepal.</p>
+      </div>
+
+      <div class="list-container">
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/indra.jpg" alt="Kathmandu Durbar Square" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Kathmandu Durbar Square</h2>
+              <p class="description">
+                A sprawling complex of temples and palaces serving as the seat
+                of the Malla and Shah kings. It is renowned for housing the
+                Kumari Bahal, the residence of the world's only Living Goddess.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Central Kathmandu</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> September to
+                  March</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Indra Jatra
+                  (Sept/Oct)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/krishna1.jpg" alt="Patan Durbar Square" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Patan Durbar Square</h2>
+              <p class="description">
+                Uniquely celebrated for its refined architecture and high
+                concentration of bronze and copper metalwork. It features the
+                stunning Krishna Mandir, built entirely of stone.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Lalitpur (City of Fine
+                  Arts)</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> October to April</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Krishna
+                  Janmashtami (Aug/Sept)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/bisket.jpg" alt="Bhaktapur Durbar Square" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Bhaktapur Durbar Square</h2>
+              <p class="description">
+                Known as the "City of Devotees," it preserves a true medieval
+                atmosphere. Famous for the soaring Nyatapola Temple, traditional
+                pottery, and local Juju Dhau (King Curd).
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> 13 km East of
+                  Kathmandu</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> Spring (Mar-May) &
+                  Autumn</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Bisket Jatra
+                  (April)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/shiva.jpg" alt="Pashupatinath Temple" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Pashupatinath Temple</h2>
+              <p class="description">
+                The most sacred Hindu temple dedicated to Lord Shiva globally.
+                It is deeply profound for its open-air cremation ceremonies and
+                daily evening Sandhya Aarti rituals.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Bank of Bagmati River,
+                  Kathmandu</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> Feb/Mar or Any
+                  Evening</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Maha Shivaratri
+                  (Feb/Mar)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/losar.jpg" alt="Boudhanath Stupa" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Boudhanath Stupa</h2>
+              <p class="description">
+                One of the largest spherical stupas in the world and the vibrant
+                focal point of Tibetan Buddhism in Nepal. Known for its massive
+                mandala base and daily Kora rituals.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Northeastern
+                  Kathmandu</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> Late Afternoon for
+                  Prayers</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Losar (Tibetan New
+                  Year)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/budhha.jpg" alt="Swayambhunath Stupa" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Swayambhunath Stupa</h2>
+              <p class="description">
+                Over 2,000 years old, the "Monkey Temple" is a perfect symbol of
+                religious syncretism, blending Hindu and Buddhist iconography
+                while offering panoramic views of the valley.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Hilltop West of
+                  Kathmandu</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> Early Morning or
+                  Sunset</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Buddha Jayanti
+                  (April/May)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/budhha2.jpg" alt="Lumbini" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Lumbini</h2>
+              <p class="description">
+                The documented birthplace of Siddhartha Gautama (Lord Buddha) in
+                623 B.C. Features the ancient Ashoka Pillar and numerous
+                international monasteries in the Monastic Zone.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Rupandehi District,
+                  Terai</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> November to March</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Buddha Jayanti
+                  (April/May)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/janaki2.jpg" alt="Janaki Mandir" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Janaki Mandir</h2>
+              <p class="description">
+                A visually striking masterpiece of "Nau Lakha" architecture that
+                blends Mughal and Hindu Rajput styles. It serves as a major
+                pilgrimage site honoring the birthplace of Goddess Sita.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Janakpur, Southeast
+                  Nepal</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> November/December</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Bibaha Panchami
+                  (Nov/Dec)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/vishnu.jpg" alt="Changunarayan Temple" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Changunarayan Temple</h2>
+              <p class="description">
+                The oldest functional temple in Nepal. It acts as an open-air
+                museum filled with masterpieces of stone sculpture and
+                inscriptions from the ancient Licchavi period.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Ridge North of
+                  Bhaktapur</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> September to May</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Local Vishnu
+                  Festivals (Oct/Nov)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-row">
+          <div class="dest-img-wrapper">
+            <img src="img/gorkha2.jpg" alt="Gorkha Durbar" />
+          </div>
+          <div class="dest-text">
+            <div>
+              <h2>Gorkha Durbar</h2>
+              <p class="description">
+                A historic hilltop fortress and the ancestral home of the Shah
+                Dynasty. It is culturally foundational as the birthplace of King
+                Prithvi Narayan Shah, who unified modern Nepal.
+              </p>
+            </div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  ><span class="label">Location:</span> Gorkha District</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i
+                ><span
+                  ><span class="label">Best Time:</span> October to April</span
+                >
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-mask"></i
+                ><span
+                  ><span class="label">Cultural Event:</span> Dashain Festival
+                  (Sept/Oct)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

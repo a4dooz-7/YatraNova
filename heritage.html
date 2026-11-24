@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YatraNova | Nepal's Heritage Wonders</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/logo.png" />
+    <style>
+      :root {
+        --accent-green: #2ecc71;
+        --brand-dark: #1a4731;
+        --soft-bg: #f9fbf9;
+      }
+      body {
+        background-color: #ffffff;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+      .header-section {
+        text-align: center;
+        padding: 10px 20px;
+        background: white;
+        margin-bottom: 40px;
+        border-bottom: 4px solid var(--accent-green);
+      }
+      .header-section h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--primary-green);
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
+        gap: 40px;
+        max-width: 1500px;
+        margin: auto;
+      }
+
+      .site-card {
+        background: white;
+        padding: 40px;
+        border-radius: 40px;
+        display: flex;
+        gap: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        border: 2px solid #eef;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .site-card:hover {
+        border-color: var(--accent-green);
+        box-shadow: 0 15px 40px rgba(46, 204, 113, 0.35);
+        transform: translateY(-8px);
+      }
+
+      .content-side {
+        flex: 1.5;
+      }
+
+      .image-side {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-side img {
+        width: 240px;
+        height: 240px;
+        object-fit: cover; /* Ensures the image fills the box without distorting */
+        border-radius: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Adds a soft shadow */
+        border: 2px solid #eee;
+      }
+
+      .site-title {
+        color: var(--brand-dark);
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .details {
+        margin: 10px 0;
+        line-height: 1.7;
+        color: #444;
+        font-size: 1rem;
+      }
+
+      .highlight {
+        color: var(--accent-green);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 768px) {
+        .site-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="header-section"><h1>Nepal's Eternal Heritage</h1></div>
+
+      <div class="grid-container">
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Kathmandu Durbar Square</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Kathmandu Valley
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Sep – May
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Historical & Cultural
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Kumari Ghar &
+              Taleju Temple
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/kathmandudurbar.jpg" alt="Kathmandu Durbar Square" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Patan Durbar Square</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Lalitpur (Patan)
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Sep – May
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Architectural &
+              Artistic
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Krishna Mandir &
+              Patan Museum
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/patan1.jpg" alt="Patan Durbar Square" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Bhaktapur Durbar Square</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Bhaktapur
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Sep – May
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Historical Art &
+              Tradition
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> 55-Window Palace
+              & Nyatapola Temple
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/bhaktapur.jpg" alt="Bhaktapur Durbar Square" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Changu Narayan</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Bhaktapur
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Sep – May
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Oldest Hindu Temple in
+              Nepal
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Ancient Stone
+              Inscriptions
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/chagunarayan.jpg" alt="Changu Narayan Temple" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Pashupatinath Temple</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Kathmandu (Bagmati Bank)
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Oct – March
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Sacred Hindu Shrine
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Evening Bagmati
+              Aarti
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/pasupatinath_temple.jpg" alt="Pashupatinath Temple" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Boudhanath Stupa</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Kathmandu
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Oct – March
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Tibetan Buddhist
+              Culture
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Massive Spherical
+              Dome
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/boudhanath.jpg" alt="Boudhanath Stupa" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Swayambhunath Stupa</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Kathmandu
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Oct – March
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Cultural & Spiritual
+              Symbol
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Panoramic Valley
+              View & Monkey Habitat
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/swayambhunath_stupa.jpg" alt="Swayambhunath Stupa" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Lumbini</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Rupandehi District
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Oct – March
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Birthplace of Lord
+              Buddha
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Maya Devi Temple
+              & Ashoka Pillar
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/lumbini.jpg" alt="Lumbini" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Chitwan National Park</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Terai Region
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Oct – Feb
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Natural Biodiversity
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> One-horned Rhinos
+              & Jungle Safaris
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/chitwan.jpg" alt="Chitwan National Park" />
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="content-side">
+            <h2 class="site-title">Sagarmatha National Park</h2>
+            <p class="details">
+              <span class="highlight">Location:</span> Solukhumbu District
+            </p>
+            <p class="details">
+              <span class="highlight">Best Time:</span> Mar – May & Oct – Nov
+            </p>
+            <p class="details">
+              <span class="highlight">Importance:</span> Alpine Flora, Fauna &
+              Mountaineering
+            </p>
+            <p class="details">
+              <span class="highlight">Major Attraction:</span> Mount Everest &
+              Sherpa Culture
+            </p>
+          </div>
+          <div class="image-side">
+            <img src="img/nat4.jpg" alt="Sagarmatha National Park" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
